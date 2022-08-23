@@ -109,17 +109,23 @@ outlines:
       - type: polygon
         points:
           - ref: matrix_inner_bottom
-            shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
+            shift: [0.5 kx + 0.5px, 0.5 ky + 0.5 py]
           - ref: thumbfan_far_thumb
-            shift: [-0.5px, 0.5 ky + 0.5 py]
+            shift: [-0.75px - 0.5px, -0.5 ky - 0.5 py]
           - ref: thumbfan_far_thumb
             shift: [0.75 kx + 0.5px, -0.5 ky - 0.5 py]
           - ref: thumbfan_near_thumb
+            shift: [0.75 kx + 0.5 px, -0.5 ky - 0.5 py]
+          - ref: thumbfan_near_thumb
             shift: [-0.75 kx - 0.5 px, -0.5 ky - 0.5 py]
           - ref: matrix_pinky_bottom
-            shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
+            shift: [0.5 kx + 0.5 py, -0.5 ky - 0.5 py]
           - ref: matrix_pinky_home
-          - ref: matrix_inner_home
+          #- ref: thumbfan_near_thumb
+          #  shift: [-0.75 kx - 0.5 px, +0.5 ky + 0.5 py]
+          #- ref: matrix_ring_bottom
+          #  shift: [0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
+          #- ref: matrix_ring_bottom
     controller_area:
       - type: rectangle
         anchor:
