@@ -18,8 +18,6 @@ points:
       diode:
         type: diode
         nets:
-          # from: P3
-          # to: P4
           from: =colrow
           to: =row_net
         anchor:
@@ -74,17 +72,17 @@ points:
             tags:
               15u: true
         home:
-          spread: 1.2 kx
+          spread: 1.13 kx
           rotate: -15
-          origin: [-0.5 kx, -ky]
+          origin: [-0.45 kx, -ky]
           key:
             column_net: P15
             tags:
               1u: true
         far:
-          spread: 1.1 kx
-          rotate: -115
-          origin: [0.1 kx, -0.1 ky]
+          spread: 1.01kx
+          rotate: 75
+          origin: [-0.01 kx, 0.167ky]
           key:
             column_net: P14
             tags:
@@ -111,9 +109,9 @@ outlines:
           - ref: matrix_inner_bottom
             shift: [0.5 kx + 0.5px, 0.5 ky + 0.5 py]
           - ref: thumbfan_far_thumb
-            shift: [-0.75px - 0.5px, -0.5 ky - 0.5 py]
+            shift: [0.75 kx + 0.5px, 0.5 ky + 0.5 py]
           - ref: thumbfan_far_thumb
-            shift: [0.75 kx + 0.5px, -0.5 ky - 0.5 py]
+            shift: [-0.75 kx - 0.5px, 0.5 ky + 0.5 py]
           - ref: thumbfan_near_thumb
             shift: [0.75 kx + 0.5 px, -0.5 ky - 0.5 py]
           - ref: thumbfan_near_thumb
@@ -121,20 +119,14 @@ outlines:
           - ref: matrix_pinky_bottom
             shift: [0.5 kx + 0.5 py, -0.5 ky - 0.5 py]
           - ref: matrix_pinky_home
-          #- ref: thumbfan_near_thumb
-          #  shift: [-0.75 kx - 0.5 px, +0.5 ky + 0.5 py]
-          #- ref: matrix_ring_bottom
-          #  shift: [0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
-          #- ref: matrix_ring_bottom
     controller_area:
       - type: rectangle
         anchor:
           ref:
-            - matrix_index_top
-          shift: [0, 0.5 ky + 0.5 py]
+            - matrix_inner_top
+          shift: [0, 0]
           rotate: 270
-        size: [76.5, 52]
-        corner: px
+        size: [60, 32.5]
     keycaps:
       1u:
         type: keys
@@ -165,7 +157,7 @@ outlines:
     pcb:
       - type: outline
         name: base_outline
-        fillet: px
+        fillet: 0.5px
 pcbs:
   board:
     outlines:
