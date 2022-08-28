@@ -15,13 +15,26 @@ points:
         nets:
           from: =colrow
           to: =column_net
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
       diode:
         type: diode
         nets:
           from: =colrow
           to: =row_net
+        params:
+          tht: false
+          internalVia: true
         anchor:
-          shift: [0, -5]
+          shift: [0, -3.25]
   zones:
     matrix:
       key:
@@ -154,124 +167,120 @@ outlines:
       - type: outline
         name: controller_area
         operation: add
+    battery_wire_hole:
+      - type: rectangle
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [12, -4]
+        size: [4, 2]
+        corner: 1
     pcb:
       - type: outline
         name: base_outline
         fillet: 0.5px
+      - type: outline
+        name: battery_wire_hole
+        operation: subtract
 pcbs:
-  board:
+  dalliekeeb:
     outlines:
       edge:
         outline: pcb
         layer: Edge.Cuts
+      keycaps:
+        outline: keycaps
+        layer: Eco1.User
     footprints:
-      mcu_l:
+      mcu_front:
         type: promicro
         params:
           orientation: up
+          side: F
           batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
-          shift: [20, -11]
+          shift: [20, -18]
           rotate: 270
-      mcu_r:
+      mcu_back:
         type: promicro
         params:
-          orientation: down
+          orientation: up
+          side: B
           batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
-          shift: [22.5, -12.25]
+          shift: [22.5, -19.25]
           rotate: 270
       pad_plus:
         type: pad
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [23, -18]
-          rotate: 0
+            - matrix_inner_bottom
+          shift: [15.5, -8.5]
         params:
           front: true
           back: true
           width: 1.5
           height: 1.5
+          align: down
           text: "B+"
         nets:
-          net: Braw
+          net: BPos
       pad_minus:
         type: pad
         anchor:
           ref:
-            - matrix_inner_top
-          shift: [23, -15]
-          rotate: 0
+            - matrix_inner_bottom
+          shift: [12.5, -8.5]
         params:
           front: true
           back: true
           width: 1.5
           height: 1.5
+          align: down
           text: "B-"
         nets:
-          net: Bminus
-      jumper_l:
-        type: jumper
-        anchor:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: B
-        nets:
-          from: Braw
-          to: Bplus
-      jumper_r:
-        type: jumper
-        anchor:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: F
-        nets:
-          from: Braw
-          to: Bplus
-      slider_l:
+          net: GND
+      slider_front:
         type: slider
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [30, 0]
+          shift: [30, -6.75]
           rotate: 270
         params:
           side: F
         nets:
-          from: Braw
-          to: Bplus
-      slider_r:
+          # down is on
+          common: RAW
+          right: BPos
+          case: GND
+      slider_back:
         type: slider
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [30, 0]
+          shift: [30, -6.75]
           rotate: 270
         params:
           side: B
         nets:
-          from: Braw
-          to: Bplus
+          # down is on
+          left: BPos
+          common: RAW
+          case: GND
       reset:
         type: button
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [17, 0]
+          shift: [22, -6.75]
           rotate: 270
         params:
-          variant: 2_pin_th
+          variant: PTS636 SK43 LFS
         nets:
           from: GND
           to: RST
