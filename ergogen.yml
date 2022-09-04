@@ -183,7 +183,7 @@ outlines:
         name: battery_wire_hole
         operation: subtract
 pcbs:
-  dalliekeeb:
+  "Dusk 36":
     outlines:
       edge:
         outline: pcb
