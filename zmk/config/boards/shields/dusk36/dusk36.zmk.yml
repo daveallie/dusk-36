@@ -1,0 +1,13 @@
+file_format: "1"
+id: dusk36
+name: Dusk-36
+type: shield
+url: https://github.com/daveallie/dusk-36/
+requires: [pro_micro]
+exposes: []
+features:
+  - keys
+siblings:
+  - dusk36_left
+  - dusk36_right
+

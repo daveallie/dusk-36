@@ -1,0 +1,51 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &hm LGUI Q  &hm LGUI W  &hm LGUI F  &hm LGUI P  &hm LGUI B        &hm LGUI J  &hm LGUI L  &hm LGUI U  &hm LGUI Y  &hm LGUI BKSP
+                &hm LGUI A  &hm LGUI R  &hm LGUI S  &hm LGUI T  &hm LGUI G        &hm LGUI M  &hm LGUI N  &hm LGUI E  &hm LGUI I  &hm LGUI O
+                &hm LGUI Z  &hm LGUI X  &hm LGUI C  &hm LGUI D  &hm LGUI V        &hm LGUI K  &hm LGUI H  &kp COMMA   &kp PERIOD  &kp SLASH
+                                        &kp LALT    &mo LOWER   &hm LGUI SPACE    &kp RSHIFT  &mo RAISE   &kp RCTRL
+            >;
+        };
+
+        lower_layer {
+            bindings = <
+                &hm LGUI Q  &hm LGUI W  &hm LGUI F  &hm LGUI P  &hm LGUI B        &hm LGUI J  &hm LGUI L  &hm LGUI U  &hm LGUI Y  &hm LGUI BKSP
+                &hm LGUI A  &hm LGUI R  &hm LGUI S  &hm LGUI T  &hm LGUI G        &hm LGUI M  &hm LGUI N  &hm LGUI E  &hm LGUI I  &hm LGUI O
+                &hm LGUI Z  &hm LGUI X  &hm LGUI C  &hm LGUI D  &hm LGUI V        &hm LGUI K  &hm LGUI H  &kp COMMA   &kp PERIOD  &kp SLASH
+                                        &kp LALT    &mo LOWER   &hm LGUI SPACE    &kp RSHIFT  &mo RAISE   &kp RCTRL
+            >;
+        };
+
+        upper_layer {
+            bindings = <
+                &hm LGUI Q  &hm LGUI W  &hm LGUI F  &hm LGUI P  &hm LGUI B        &hm LGUI J  &hm LGUI L  &hm LGUI U  &hm LGUI Y  &hm LGUI BKSP
+                &hm LGUI A  &hm LGUI R  &hm LGUI S  &hm LGUI T  &hm LGUI G        &hm LGUI M  &hm LGUI N  &hm LGUI E  &hm LGUI I  &hm LGUI O
+                &hm LGUI Z  &hm LGUI X  &hm LGUI C  &hm LGUI D  &hm LGUI V        &hm LGUI K  &hm LGUI H  &kp COMMA   &kp PERIOD  &kp SLASH
+                                        &kp LALT    &mo LOWER   &hm LGUI SPACE    &kp RSHIFT  &mo RAISE   &kp RCTRL
+            >;
+        };
+    };
+};

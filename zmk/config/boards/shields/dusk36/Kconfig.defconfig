@@ -1,0 +1,23 @@
+if SHIELD_DUSK36_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Dusk-36"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_DUSK36_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "Dusk-36 Aux"
+
+endif
+
+if SHIELD_DUSK36_LEFT || SHIELD_DUSK36_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
