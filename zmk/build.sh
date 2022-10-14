@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Run this script using Docker from this directory:
-# docker run --rm -it -v $(pwd):/workspace/zmk-config zmkfirmware/zmk-build-arm:3.0 /workspace/zmk-config/build.sh
-
 set -e
 
 cd /workspace/zmk-config

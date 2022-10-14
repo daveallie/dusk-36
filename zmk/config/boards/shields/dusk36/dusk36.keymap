@@ -2,14 +2,24 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
+#define QWERTY_BASE  0
+#define COLEMAK_BASE 1
+#define LOWER        2
+#define RAISE        3
+#define ADJUST       4
 
 #define ALG(keycode) &ht_tp LG(keycode) keycode    // Auto Left GUI Macro
 #define ALA(keycode) &ht_tp LA(keycode) keycode    // Auto Left Alt Macro
 
 / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <LOWER RAISE>;
+            then-layer = <ADJUST>;
+        };
+    };
+
     macros {
         fat_arw: fat_arrow {
             compatible = "zmk,behavior-macro";
@@ -36,7 +46,16 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        qwerty_base_layer {
+            bindings = <
+                ALG(Q)  ALG(W)  ALG(E)    ALG(R)     ALG(T)            ALG(Y)      ALG(U)     ALG(I)     ALG(O)      ALG(P)
+                ALG(A)  ALG(S)  ALG(D)    ALG(F)     ALG(G)            ALG(H)      ALG(J)     ALG(K)     ALG(L)      ALG(BKSP)
+                ALG(Z)  ALG(X)  ALG(C)    ALG(V)     ALG(B)            ALG(N)      ALG(M)     &kp COMMA  &kp PERIOD  &kp SLASH
+                                &kp LALT  &mo LOWER  ALG(SPACE)        &kp RSHIFT  &mo RAISE  &kp RCTRL
+            >;
+        };
+
+        colemak_base_layer {
             bindings = <
                 ALG(Q)  ALG(W)  ALG(F)    ALG(P)     ALG(B)            ALG(J)      ALG(L)     ALG(U)     ALG(Y)      ALG(BKSP)
                 ALG(A)  ALG(R)  ALG(S)    ALG(T)     ALG(G)            ALG(M)      ALG(N)     ALG(E)     ALG(I)      ALG(O)
@@ -60,6 +79,15 @@
                 &kp TAB    &kp PIPE   &kp LS(LBKT)  &kp LS(RBKT)  &kp EQUAL         &kp PLUS   &kp 4   &kp 5  &kp 6  &kp ENTER
                 &kp GRAVE  &kp TILDE  &kp LBKT      &kp RBKT      &kp BSLH          &kp 0      &kp 1   &kp 2  &kp 3  &kp STAR
                                       &kp LGUI      &trans        &kp LSHIFT        &trans     &trans  &trans
+            >;
+        };
+
+        adjust_layer {
+            bindings = <
+                &tog COLEMAK_BASE  &none  &none  &none   &none        &none  &none   &none  &none  &none
+                &none              &none  &none  &none   &none        &none  &none   &none  &none  &none
+                &none              &none  &none  &none   &none        &none  &none   &none  &none  &none
+                                          &none  &trans  &none        &none  &trans  &none
             >;
         };
     };
