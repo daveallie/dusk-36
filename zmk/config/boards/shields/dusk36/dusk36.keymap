@@ -1,26 +1,30 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 #define LOWER   1
 #define RAISE   2
 
+#define ALG(keycode) &ht_tp LG(keycode) keycode    // Auto Left GUI Macro
+#define ALA(keycode) &ht_tp LA(keycode) keycode    // Auto Left Alt Macro
+
 / {
     macros {
-        fat_arw: fat_arw {
-            label = "fat_arw";
+        fat_arw: fat_arrow {
             compatible = "zmk,behavior-macro";
+            label = "FAT_ARROW";
             #binding-cells = <0>;
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <&kp EQUAL %kp GT>;
+            bindings = <&kp EQUAL &kp GT>;
         };
     };
 
     behaviors {
-        hm: homerow_mods {
+        ht_tp: hold_tap_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
+            label = "HOLD_TAP_TAP_PREFERRED";
             #binding-cells = <2>;
             tapping-term-ms = <300>;
             quick-tap-ms = <250>;
@@ -34,19 +38,19 @@
 
         default_layer {
             bindings = <
-                &hm LGUI Q  &hm LGUI W  &hm LGUI F  &hm LGUI P  &hm LGUI B            &hm LGUI J  &hm LGUI L  &hm LGUI U  &hm LGUI Y  &hm LGUI BKSP
-                &hm LGUI A  &hm LGUI R  &hm LGUI S  &hm LGUI T  &hm LGUI G            &hm LGUI M  &hm LGUI N  &hm LGUI E  &hm LGUI I  &hm LGUI O
-                &hm LGUI Z  &hm LGUI X  &hm LGUI C  &hm LGUI D  &hm LGUI V            &hm LGUI K  &hm LGUI H  &kp COMMA   &kp PERIOD  &kp SLASH
-                                        &kp LALT    &mo LOWER   &hm LGUI SPACE        &kp RSHIFT  &mo RAISE   &kp RCTRL
+                ALG(Q)  ALG(W)  ALG(F)    ALG(P)     ALG(B)            ALG(J)      ALG(L)     ALG(U)     ALG(Y)      ALG(BKSP)
+                ALG(A)  ALG(R)  ALG(S)    ALG(T)     ALG(G)            ALG(M)      ALG(N)     ALG(E)     ALG(I)      ALG(O)
+                ALG(Z)  ALG(X)  ALG(C)    ALG(D)     ALG(V)            ALG(K)      ALG(H)     &kp COMMA  &kp PERIOD  &kp SLASH
+                                &kp LALT  &mo LOWER  ALG(SPACE)        &kp RSHIFT  &mo RAISE  &kp RCTRL
             >;
         };
 
         lower_layer {
             bindings = <
-                &kp EXCL          &kp AT  &kp HASH  &kp DLLR  &kp PRCNT        &kp CARET      &kp AMPS  &kp STAR  &kp SEMI        &kp COLON
-                &ht_tp LC(K) DEL  &none   &none     &none     &kp LALT         &hm LALT LEFT  &kp DOWN  &kp UP    &hm LALT RIGHT  &kp SQT
-                &none             &none   &none     &none     &kp LGUI         &kp HOME       &kp END   &none     &fat_arw        &kp DQT
-                                          &trans    &trans    &trans           &trans         &trans    &trans
+                &kp EXCL          &kp AT  &kp HASH  &kp DLLR  &kp PRCNT        &kp CARET  &kp AMPS  &kp STAR  &kp SEMI    &kp COLON
+                &ht_tp LC(K) DEL  &none   &none     &none     &kp LALT         ALA(LEFT)  &kp DOWN  &kp UP    ALA(RIGHT)  &kp SQT
+                &none             &none   &none     &none     &kp LGUI         &kp HOME   &kp END   &none     &fat_arw    &kp DQT
+                                          &trans    &trans    &trans           &trans     &trans    &trans
             >;
         };
 
