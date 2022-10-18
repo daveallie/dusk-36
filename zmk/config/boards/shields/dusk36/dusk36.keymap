@@ -75,10 +75,10 @@
 
         upper_layer {
             bindings = <
-                &kp ESC    &none      &kp LPAR      &kp RPAR      &kp UNDER         &kp MINUS  &kp 7   &kp 8  &kp 9  &kp DOT
-                &kp TAB    &kp PIPE   &kp LS(LBKT)  &kp LS(RBKT)  &kp EQUAL         &kp PLUS   &kp 4   &kp 5  &kp 6  &kp ENTER
-                &kp GRAVE  &kp TILDE  &kp LBKT      &kp RBKT      &kp BSLH          &kp 0      &kp 1   &kp 2  &kp 3  &kp STAR
-                                      &kp LGUI      &trans        &kp LSHIFT        &trans     &trans  &trans
+                &kp ESC    &none      &kp LPAR      &kp RPAR      &kp UNDER         &kp KP_MINUS  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_DOT
+                &kp TAB    &kp PIPE   &kp LS(LBKT)  &kp LS(RBKT)  &kp EQUAL         &kp KP_PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp ENTER
+                &kp GRAVE  &kp TILDE  &kp LBKT      &kp RBKT      &kp BSLH          &kp KP_N0     &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_MULTIPLY
+                                      &kp LGUI      &trans        &kp LSHIFT        &trans        &trans     &trans
             >;
         };
 
