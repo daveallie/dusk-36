@@ -84,10 +84,10 @@
 
         adjust_layer {
             bindings = <
-                &tog COLEMAK_BASE  &none  &none  &none   &none        &none  &none   &none  &none  &none
-                &none              &none  &none  &none   &none        &none  &none   &none  &none  &none
-                &none              &none  &none  &none   &none        &none  &none   &none  &none  &none
-                                          &none  &trans  &none        &none  &trans  &none
+                &tog COLEMAK_BASE  &none  &none  &none   &none        &none  &kp LC(LA(LG(LEFT)))  &kp LC(LA(ENTER))  &kp LC(LA(LG(RIGHT)))  &none
+                &none              &none  &none  &none   &none        &none  &kp LC(LA(LEFT))      &kp LC(LA(DOWN))   &kp LC(LA(RIGHT))      &none
+                &none              &none  &none  &none   &none        &none  &none                 &none                  &none              &none
+                                          &none  &trans  &none        &none  &trans                &none
             >;
         };
     };
