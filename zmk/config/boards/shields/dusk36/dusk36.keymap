@@ -48,18 +48,18 @@
 
         qwerty_base_layer {
             bindings = <
-                ALG(Q)  ALG(W)  ALG(E)    ALG(R)     ALG(T)            ALG(Y)      ALG(U)     ALG(I)     ALG(O)      ALG(P)
-                ALG(A)  ALG(S)  ALG(D)    ALG(F)     ALG(G)            ALG(H)      ALG(J)     ALG(K)     ALG(L)      ALG(BKSP)
-                ALG(Z)  ALG(X)  ALG(C)    ALG(V)     ALG(B)            ALG(N)      ALG(M)     &kp COMMA  &kp PERIOD  &kp SLASH
+                ALG(Q)  ALG(W)  ALG(E)    ALG(R)     ALG(T)            ALG(Y)      ALG(U)     ALG(I)      ALG(O)       ALG(P)
+                ALG(A)  ALG(S)  ALG(D)    ALG(F)     ALG(G)            ALG(H)      ALG(J)     ALG(K)      ALG(L)       ALG(BKSP)
+                ALG(Z)  ALG(X)  ALG(C)    ALG(V)     ALG(B)            ALG(N)      ALG(M)     ALG(COMMA)  ALG(PERIOD)  ALG(SLASH)
                                 &kp LALT  &mo LOWER  ALG(SPACE)        &kp RSHIFT  &mo RAISE  &kp RCTRL
             >;
         };
 
         colemak_base_layer {
             bindings = <
-                ALG(Q)  ALG(W)  ALG(F)    ALG(P)     ALG(B)            ALG(J)      ALG(L)     ALG(U)     ALG(Y)      ALG(BKSP)
-                ALG(A)  ALG(R)  ALG(S)    ALG(T)     ALG(G)            ALG(M)      ALG(N)     ALG(E)     ALG(I)      ALG(O)
-                ALG(Z)  ALG(X)  ALG(C)    ALG(D)     ALG(V)            ALG(K)      ALG(H)     &kp COMMA  &kp PERIOD  &kp SLASH
+                ALG(Q)  ALG(W)  ALG(F)    ALG(P)     ALG(B)            ALG(J)      ALG(L)     ALG(U)      ALG(Y)       ALG(BKSP)
+                ALG(A)  ALG(R)  ALG(S)    ALG(T)     ALG(G)            ALG(M)      ALG(N)     ALG(E)      ALG(I)       ALG(O)
+                ALG(Z)  ALG(X)  ALG(C)    ALG(D)     ALG(V)            ALG(K)      ALG(H)     ALG(COMMA)  ALG(PERIOD)  ALG(SLASH)
                                 &kp LALT  &mo LOWER  ALG(SPACE)        &kp RSHIFT  &mo RAISE  &kp RCTRL
             >;
         };
