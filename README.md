@@ -8,8 +8,6 @@ between halves or from the keyboard to the computer). This board's layout was ge
 [my fork of Ergogen](https://github.com/daveallie/ergogen/tree/daveallie-improvements) (which includes a few small 
 changes), and then routed by hand in KiCad. 
 
-**I have not yet fabricated or tested this. If you plan to copy this design, please do so at your own risk.**
-
 ### PCB Preview
 
 | Left                   | Right                   |
