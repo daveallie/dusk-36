@@ -1,4 +1,5 @@
-# Dusk 36 Keyboard
+<h1 align="center">Dusk 36 Keyboard</h1>
+<p align="center"><img src="./assets/assembled.jpg" width="500"></p>
 
 Dusk 36 is a 36-key low-profile split ergo keyboard based off https://github.com/weteor/3W6 and 
 https://github.com/davidphilipbarr/Sweep.
@@ -6,7 +7,7 @@ https://github.com/davidphilipbarr/Sweep.
 The Dusk 36 is designed around the nice!nano v2.0 microcontroller in order to be a true wireless keyboard (no cables
 between halves or from the keyboard to the computer). This board's layout was generated with 
 [my fork of Ergogen](https://github.com/daveallie/ergogen/tree/daveallie-improvements) (which includes a few small 
-changes), and then routed by hand in KiCad. 
+changes), and then routed by hand in KiCad.
 
 ### PCB Preview
 
