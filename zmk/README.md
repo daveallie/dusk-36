@@ -10,10 +10,16 @@ Pushing to GitHub will build the firmware.
 
 ### Building Locally
 
-From this directory, run:
+The first time you run this, you'll need to run the setup script:
 
 ```shell
-docker run --rm -it -v $(pwd):/workspace/zmk-config zmkfirmware/zmk-build-arm:3.0 /workspace/zmk-config/build.sh
+docker run --rm -it -v $(pwd):/workspace/zmk-config zmkfirmware/zmk-build-arm:3.5 /workspace/zmk-config/setup.sh
+```
+
+To build the images, run:
+
+```shell
+docker run --rm -it -v $(pwd):/workspace/zmk-config zmkfirmware/zmk-build-arm:3.5 /workspace/zmk-config/build.sh
 ```
 
 The built uf2 files will be in the `build/artifacts` directory.

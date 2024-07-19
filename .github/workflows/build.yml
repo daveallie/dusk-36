@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:3.0
+      image: zmkfirmware/zmk-build-arm:3.5
     name: Build
     strategy:
       fail-fast: false
@@ -15,15 +15,9 @@ jobs:
       - name: Prepare variables
         id: variables
         run: |
-          if [ -n "${{ matrix.shield }}" ]; then
-            EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
-            ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
-            DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
-          else
-            EXTRA_CMAKE_ARGS=
-            DISPLAY_NAME="${{ matrix.board }}"
-            ARTIFACT_NAME="${{ matrix.board }}-zmk"
-          fi
+          EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
+          ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
+          DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
           echo ::set-output name=extra-cmake-args::${EXTRA_CMAKE_ARGS}
           echo ::set-output name=artifact-name::${ARTIFACT_NAME}
           echo ::set-output name=display-name::${DISPLAY_NAME}
