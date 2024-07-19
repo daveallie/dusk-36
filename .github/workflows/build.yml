@@ -15,16 +15,13 @@ jobs:
       - name: Prepare variables
         id: variables
         run: |
-          EXTRA_CMAKE_ARGS="-DSHIELD=${{ matrix.shield }}"
-          ARTIFACT_NAME="${{ matrix.shield }}-${{ matrix.board }}-zmk"
-          DISPLAY_NAME="${{ matrix.shield }} - ${{ matrix.board }}"
-          echo ::set-output name=extra-cmake-args::${EXTRA_CMAKE_ARGS}
-          echo ::set-output name=artifact-name::${ARTIFACT_NAME}
-          echo ::set-output name=display-name::${DISPLAY_NAME}
+          echo "extra-cmake-args=-DSHIELD=${{ matrix.shield }}" >> $GITHUB_OUTPUT
+          echo "artifact-name=${{ matrix.shield }}-${{ matrix.board }}-zmk" >> $GITHUB_OUTPUT
+          echo "display-name=${{ matrix.shield }} - ${{ matrix.board }}" >> $GITHUB_OUTPUT
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Cache west modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         env:
           cache-name: cache-zephyr-modules
         with:
@@ -73,7 +70,7 @@ jobs:
             cp build/zephyr/zmk.hex "build/artifacts/${{ steps.variables.outputs.artifact-name }}.hex"
           fi
       - name: Archive (${{ steps.variables.outputs.display-name }})
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: firmware
           path: zmk/build/artifacts
